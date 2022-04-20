@@ -1,3 +1,14 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+
+layout: home
+title: Isograd API/LTI documentation
+---
+
+1. The generated Toc will be an ordered list
+{:toc}
+
 # Introduction
 The aim of this document is to describe how to use the services the Isograd system offers, either to LTI consumers or via the API.
 
@@ -82,6 +93,7 @@ The response is a JSON object containing the following properties:
 - `lgn_url`: a url that can be used by the candidate to login into the platform without entering any credentials
 
 **Errors**
+
 | error_code  | error_message  |
 |---|---|
 | 201 | The candidate could not be created (probably because one of the parameters is not valid) |
@@ -111,6 +123,7 @@ The response will be a JSON object (unless `html` or `redirect` are set to 1) co
 Note: if the candidate has an unfinished test and `act_id` is set to `2`, the response will contains the unfinished test's details. 
 
 **Errors**
+
 | error_code  | error_message  |
 |---|---|
 | 106 | This `rea_tst_id` is not allowed |
@@ -121,6 +134,7 @@ Note: if the candidate has an unfinished test and `act_id` is set to `2`, the re
 > 💡 Note: Most systems connecting to the Isograd platform will set the optional `redirect` parameter to true as it allows to have the standard expected behaviour: the candidate clicks on a link in the LMS and the test starts automatically.
 
 ### Create a candidate and take test
+
 | Parameter  | Required  | Value |
 |---|---|---|
 | act_id | 🟩 | 8 |
@@ -128,6 +142,7 @@ Note: if the candidate has an unfinished test and `act_id` is set to `2`, the re
 The system will perform successively the Create Candidate and Add a Test actions described above. Consequently, the return structure will be similar to Add a Test action and all the parameters required or optional in the Add Test and Create Candidate actions may be provided.
 
 ### Add/remove online proctoring to a test
+
 | Parameter  | Required  | Value |
 |---|---|---|
 | act_id | 🟩 | 16: add online proctoring, 17: remove online proctoring |
@@ -136,12 +151,14 @@ The system will perform successively the Create Candidate and Add a Test actions
 The response will be a JSON object containing no specific property.
 
 **Errors**
+
 | error_code  | error_message  |
 |---|---|
 | 303 | You have no proctoring credit left |
 
 
 ### Delete a test
+
 | Parameter  | Required  | Value |
 |---|---|---|
 | act_id | 🟩 | 23 |
@@ -150,12 +167,14 @@ The response will be a JSON object containing no specific property.
 The response will be a JSON object containing no specific property.
 
 **Errors**
+
 | error_code  | error_message  |
 |---|---|
 | 304 | The test is already started or does not exist |
 
 ## Results
 ### Get PDF results
+
 | Parameter  | Required  | Value |
 |---|---|---|
 | act_id | 🟩 | 6 |
@@ -168,8 +187,8 @@ The response will be a JSON object containing no specific property.
 The response will be a JSON object (unless `redirect` is set to 1) containing the following properties:
 - `pdf_url`: the URL of the PDF report
 
-
 **Errors**
+
 | error_code  | error_message  |
 |---|---|
 | 106 | This value for `rea_tst_id`  is not authorized |
@@ -179,6 +198,7 @@ The response will be a JSON object (unless `redirect` is set to 1) containing th
 | 601 | Test must be an assessment |
 
 ### Get results as a JSON
+
 | Parameter  | Required  | Value |
 |---|---|---|
 | act_id | 🟩 | 6 |
@@ -195,6 +215,7 @@ The response will be a JSON object containing the following properties:
 - `no_sto_tim_spe`: the difference expressed in seconds between the start time and the end time of the test. (This time may not correspond to the time spent by the candidate on the test as he or she may have the option in some cases to stop the test and restart it later).
 
 The potential values for `gra_typ_id` are:
+
 | Value  |  Description |
 |---|---|
 | 1 | Level on a 1 to 5 scale |
@@ -205,6 +226,7 @@ The potential values for `gra_typ_id` are:
 | 15 | Score on 100 computed by averaging scores on each question |
 
 ### Get results details as a JSON
+
 | Parameter  | Required  | Value |
 |---|---|---|
 | act_id | 🟩 | 5 |
@@ -224,6 +246,7 @@ The response will be a JSON object containing the following properties:
     - (for tests NOT based on IRT) `successrate`: Success rate on questions belonging this skill. This is a decimal value equal to -1 or between 0 and 1. A value of -1 means the candidate has not been tested on this skill.
 
 ### Get test status
+
 | Parameter  | Required  | Value |
 |---|---|---|
 | act_id | 🟩 | 10 |
@@ -237,12 +260,14 @@ The response will be a JSON object containing the following properties:
     - 4: marking pending (for tests that include manual marking)
 
 **Errors**
+
 | error_code  | error_message  |
 |---|---|
 | 501 | This `pla_tst_id` does not exist |
 
 ## Administration
 ### Create a session
+
 | Parameter  | Required  | Value |
 |---|---|---|
 | act_id | 🟩 | 11 |
@@ -255,6 +280,7 @@ The response will be a JSON object containing the following properties:
 - `ses_id`: An integer representing the unique ID of the session
 
 ### Anonymize a candidate
+
 | Parameter  | Required  | Value |
 |---|---|---|
 | act_id | 🟩 | 12 |
@@ -265,6 +291,7 @@ Their first name, last name and email address will be replaced by numbers in Iso
 The response will be a JSON object containing no specific property.
 
 ### Log-in as an administrator
+
 | Parameter  | Required  | Value |
 |---|---|---|
 | act_id | 🟩 | 13 |
@@ -302,6 +329,7 @@ The response will be a JSON object containing the following properties:
 - `tests`: An array of the IDs of the allowed tests.
 
 ### Get available credits
+
 | Parameter  | Required  | Value |
 |---|---|---|
 | act_id | 🟩 | 15 |
