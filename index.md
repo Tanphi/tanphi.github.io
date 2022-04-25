@@ -6,7 +6,7 @@ layout: home
 title: Isograd API/LTI documentation
 ---
 
-1. The generated Toc will be an ordered list
+1. Table of Content
 {:toc}
 
 # Introduction
@@ -27,11 +27,13 @@ There are two environments, one for testing and the other for production:
 - Production : https://tosa.isograd.com/api/usage
 
 ### Use a service
-Most of the calls made to Isograd LTI Services require **custom parameters** to indicate what you want to achieve. Your system should include the possibility to add custom parameters in your LTI messages
+Most of the calls made to Isograd LTI Services require **custom parameters** to indicate what you want to achieve. Your system should include the possibility to add custom parameters in your LTI messages.
+
+![](lti_additional_param.jpg)
 
 ### Example
 To manually test your requests, you can use the LTI Emulation tool accessible here: http://ltiapps.net/test/tc.php. Below is an example of such a test:
-
+![](lti_example.jpg)
 
 ## API
 ### Connexion
@@ -51,12 +53,10 @@ The testing environment is IP-restricted: please send the IP addresses you will 
 ### Use a service
 To use a service, make a POST request to the URL of the chosen environment. The header must contain the field `Authorisation: OAuth <your_token>`.
 
-### Example
-
 
 
 # Actions
-All your actions must contain a parameter `act_id` that contains the action you want to do: these actions and the parameters that must be sent are described in this section. For every parameter, there will be an indication of wether or not it is required:
+All your actions must contain a parameter `act_id` that contains the action you want to do: these actions and the parameters that must be sent are described in this section. For every parameter, there will be an indication of whether or not it is required:
 - 🟩 Required parameter
 - 🔷 **API**: Required parameter **LTI**: parameter already sent via the LTI protocol, do not include it in the additional parameters
 - 🟠 Optional parameter 
@@ -105,7 +105,7 @@ The response is a JSON object containing the following properties:
 | Parameter  | Required  | Value |
 |---|---|---|
 | act_id | 🟩 | 2: do not add the test if the candidate has an unfinished test for this `rea_tst_id`. 9: Create the test even if the candidate has an unfinished test. |
-| rea_tst_id | 🟩  | The test identifier. To get the list, log into the Isograd's plaform and click on "Help" in the left menu |
+| rea_tst_id | 🟩  | The test identifier. To get the list, log into the Isograd's platform and click on "Help" in the left menu |
 | ema | 🔷 | Candidate's email address |
 | html | 🟠 | 1: The response will be an HTML `<a>` tag (with a class attribute `isograd_start_test_button`) |
 | redirect | 🟠 | 1: The response will be a HTTP 302 status redirecting to the URL of the test start page |
