@@ -32,7 +32,7 @@ Most of the calls made to Isograd LTI Services require **custom parameters** to 
 ![](lti_additional_param.jpg)
 
 ### Example
-To manually test your requests, you can use the LTI Emulation tool accessible here: http://ltiapps.net/test/tc.php. Below is an example of such a test:
+To manually test your requests, you can use the LTI Emulation tool accessible here: [http://ltiapps.net/test/tc.php](http://ltiapps.net/test/tc.php). Below is an example of such a test:
 ![](lti_example.jpg)
 
 ## API
