@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<link rel="icon" type="image/x-icon" href="clemilie.ico">
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Mariage au Château de Campet</title>
+  <title>Clémilie se marient !</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -108,18 +109,69 @@
       font-size: 0.9rem;
       color: #777;
     }
+    /* ====== HERO SPLIT ====== */
+.hero-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  height: 400px;
+  overflow: hidden;
+}
+
+.hero-left {
+  background: url('images/clemilie2.jpg') center/cover no-repeat;
+}
+
+.hero-right {
+  position: relative;
+  background: #fff;
+}
+
+/* Ornement floral unique en fond */
+.hero-right {
+  background: #fff url('https://ungrandjour-bucket.s3.amazonaws.com/production/composition/46/image_1650032058.png') center/cover no-repeat;
+  position: relative;
+}
+
+/* Contenu texte centré verticalement */
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  padding: 0 2rem;
+  max-width: 350px;
+}
+
+.hero-date {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.hero-location {
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
   </style>
 </head>
 <body>
 
   <!-- HEADER -->
-  <header>
-    <div class="hero"></div>
-    <div class="intro">
-      <h1>Clémilie se marient</h1>
-      <p>Vous êtes chaleureusement invité·e·s à célébrer notre mariage au Château de Campet.</p>
+  <header class="hero-container">
+  <div class="hero-left"></div>
+  <div class="hero-right">
+    <div class="hero-content">
+      <p class="hero-date">11 octobre 2025</p>
+      <p class="hero-location">
+        Au Château de Campet
+      </p>
     </div>
-  </header>
+  </div>
+</header>
 
   <!-- NAVIGATION -->
   <nav>
@@ -161,8 +213,8 @@
   <section id="cadeaux">
     <h2>Cadeaux & Cagnotte</h2>
     <p>Votre présence est notre plus beau cadeau. Si vous souhaitez contribuer à notre lune de miel :</p>
-    <a href="https://example.com/votre-cagnotte" target="_blank" rel="noopener" class="btn">Notre cagnotte</a>
-    <p style="font-size:0.9rem; color:#666; margin-top:0.5rem;">
+    <a href="https://example.com/votre-cagnotte" target="_blank" rel="noopener" class="btn">Notre cagnotte</a></br></br>
+    <p >
       Un petit geste pour notre voyage nous touchera beaucoup !
     </p>
   </section>
@@ -196,7 +248,7 @@
   <section id="hebergements">
     <h2>Où loger ?</h2>
     <p>
-      L'hôtel Renaissance propose un tarif spécial pour les mariages au château de Campet. Appelez-les et mentionnez le château pour bénéficier de la réduction !<br>
+      L'hôtel Renaissance propose un <b>tarif spécial</b> pour les mariages au château de Campet. Appelez-les et mentionnez le château pour bénéficier de la réduction !<br>
       <strong>Le Renaissance ***</strong> (110&nbsp;€ côté parking au lieu de 120&nbsp;€, ou 120&nbsp;€ côté jardin au lieu de 130&nbsp;€)<br>
       225, avenue de Villeneuve<br>
       40000 MONT DE MARSAN<br>
